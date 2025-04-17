@@ -5,7 +5,7 @@
 To develop a Django application to store and retrieve data from Movies Database using Object Relational Mapping(ORM).
 
 ## DIAGRAM
-![Screenshot 2025-04-08 135323](https://github.com/user-attachments/assets/80e288da-fd43-4e9f-b664-b1500dd6993e)
+![Screenshot 2025-04-17 103137](https://github.com/user-attachments/assets/c671733f-1ad2-4358-a57a-4316f6f4405e)
 
 ## DESIGN STEPS
 
@@ -25,29 +25,34 @@ Execute Django admin and create details for 10 books
 ## PROGRAM
 models.py
 ```
+admin.py
+
+from django.contrib import admin
+from .models import Movies,MoviesAdmin
+admin.site.register(Movies,MoviesAdmin)
+
+
+models.py
+
 from django.db import models
 from django.contrib import admin
-class Employee (models.Model):
-    eid=models.IntegerField(primary_key=True)
-    name=models.CharField(max_length=100)
-    salary=models.IntegerField()
-    age=models.IntegerField()
-    email=models.EmailField()
- 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display=('eid','name','salary','age','email')
-```
-admin.py
-```
-from django.contrib import admin
-from .models import Employee,EmployeeAdmin
-admin.site.register(Employee,EmployeeAdmin)
+class Movies(models.Model):
+    userid=models.IntegerField(primary_key=True)
+    username=models.CharField(max_length=30)
+    mobileno=models.IntegerField()
+    mailid=models.EmailField()
+    moviename=models.CharField(max_length=50)
+    noofseats=models.IntegerField()
+    date=models.DateField()
+
+class MoviesAdmin(admin.ModelAdmin):
+    list_display=('username','moviename','noofseats','mailid')
 ```
 
 
 ## OUTPUT
-![alt text](<ormapp/Screenshot 2025-03-26 204447.png>)
 
+![Screenshot 2025-04-17 103123](https://github.com/user-attachments/assets/27936975-8557-4be7-bf8b-c9af9f8e1b58)
 
 
 ## RESULT
